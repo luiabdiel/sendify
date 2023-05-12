@@ -23,19 +23,7 @@ go run main.go
 O serviço possui endpoints que permitem o envio de emails em lote. A API suporta requisições HTTP POST e GET.
 
 ## **Envio de email**
-Para enviar um email em lote, é necessário fazer uma requisição POST para o endpoint /emails com o seguinte payload:
-
-```
-{
-  "subject": "Assunto do email",
-  "body": "Corpo do email",
-  "recipients": [
-    "email1@example.com",
-    "email2@example.com"
-  ]
-}
-
-```
+Para enviar um email em lote, é necessário fazer uma requisição POST para o endpoint /emails.
 
 O servidor retornará um código 202 Accepted, indicando que o email foi aceito para envio. O envio em si é realizado de forma assíncrona em segundo plano.
 
