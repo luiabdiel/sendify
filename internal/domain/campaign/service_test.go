@@ -45,11 +45,9 @@ func Test_Create_SaveCampaign(t *testing.T) {
 	repositoryMock := new(repositoryMock)
 
 	repositoryMock.On("Save", mock.MatchedBy(func(campaign *Campaign) bool {
-		if campaign.Name != newCampaign.Name {
-			return false
-		} else if campaign.Content != newCampaign.Content {
-			return false
-		} else if len(campaign.Contacts) != len(newCampaign.Emails) {
+		if campaign.Name != newCampaign.Name ||
+			campaign.Content != newCampaign.Content ||
+			len(campaign.Contacts) != len(newCampaign.Emails) {
 			return false
 		}
 
