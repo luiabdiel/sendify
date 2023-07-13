@@ -3,6 +3,7 @@ package campaign
 import (
 	"errors"
 	"sendify/internal/contract"
+	internalerros "sendify/internal/internalErros"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -79,5 +80,5 @@ func Test_Create_ValidateRepositorySave(t *testing.T) {
 
 	_, err := service.Create(newCampaign)
 
-	assert.Equal("error to save on database", err.Error())
+	assert.True(errors.Is(internalerros.ErrInternal, err))
 }
